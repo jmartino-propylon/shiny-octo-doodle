@@ -3,6 +3,11 @@
 /start_tests.cmd
 /test.py
 /env
+/env38
 /.idea
 /__pycache__
 /report.html
+/webdrivers
+/req1.txt
+/Results
+/*screenshot*.png
