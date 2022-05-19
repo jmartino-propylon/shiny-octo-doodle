@@ -7,10 +7,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v1
 
-      # - name: Install Office
+      - name: Install Office
       #   # run: choco install office365business
       #   # run: choco install office365business --params="'/productid:O365HomePremRetail /exclude:Access Excel PowerPoint Groove Lync OneDrive OneNote Outlook Publisher /eula:FALSE'"
-      #   run: choco install microsoft-office-deployment --params="'/64bit /Product:WordRetail /DusableUpdate:True'"
+        run: choco install microsoft-office-deployment --params="'/64bit /Product:WordRetail /DisableUpdate:True'"
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
@@ -23,18 +23,16 @@ jobs:
           pip install wheel
           pip install robotframework robotframework-seleniumlibrary rpaframework-windows webdrivermanager rpaframework-core rpaframework-dialogs
 
-      # - name: Serve HTTP page in localhost:8080 as background process
-      #   # run: start /min python -m http.server --directory .\Resources 8080
-      #   # run: npx http-server .\Resources -p 8080
-      #   run: |
-      #     cmd /c "START /b run_local_http_server.bat"
-      #     powershell -command "Start-Sleep -s 5"
+      - name: Serve HTTP page in localhost:8080 as background process
+        run: |
+          cmd /c "START /b run_local_http_server.bat"
+          powershell -command "Start-Sleep -s 5"
 
-      # - name: Webdrivemanager install chromedriver
-      #   run: webdrivermanager chrome
+      - name: Webdrivemanager install chromedriver
+        run: webdrivermanager chrome
 
-      # - name: Robot Framework Word Tests
-      #   run: robot -N "PoC Tests - Shiny-Octo-Doodle" -d Results -i Word .\Tests
+      - name: Robot Framework Word Tests
+        run: robot -N "PoC Tests - Shiny-Octo-Doodle" -d Results -i Word .\Tests
 
       - name: Robot Framework HTML Tests
         run: robot -N "PoC Tests - Shiny-Octo-Doodle" -d Results -i HTML .\Tests
