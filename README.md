@@ -9,6 +9,6 @@ This Proof of concept does the following:
   - Make sure it will find the Word window (Work in progress. Working on locking the PID and clicking on that PID window)
   - Close the document
   - Close Word Window
-  - Close the Browset
+  - Close the Browser
 
 That's it :)
